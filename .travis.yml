@@ -4,5 +4,9 @@ os: linux
 git:
    depth: 1
 
+before_script:
+- go get -u github.com/goadesign/goa/...
+- make goa
+
 script:
 - make test
