@@ -10,7 +10,7 @@ import (
 
 	"github.com/luanngominh/goa-example/app"
 	. "github.com/luanngominh/goa-example/ext/controller"
-	"github.com/luanngominh/goa-example/ext/service"
+	dbsvc "github.com/luanngominh/goa-example/ext/service"
 )
 
 func main() {
@@ -28,14 +28,14 @@ func main() {
 	service.Use(middleware.Recover())
 
 	// Create db Service
-	dbSvc := &service.Service{}
+	dbSvc := &dbsvc.Service{}
 
 	// Mount "authentication" controller
 	c := NewAuthenticationController(service, dbSvc)
 	app.MountAuthenticationController(service, c)
 
 	// Start service
-	if err := service.ListenAndServe(":8080"); err != nil {
+	if err := service.ListenAndServe(":8888"); err != nil {
 		service.LogError("startup", "err", err)
 	}
 }

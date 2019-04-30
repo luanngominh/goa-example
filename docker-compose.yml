@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+  
+  pgdb:
+    image: postgres:9.6
+    restart: always
+    container_name: go-example-db
+    environment:
+      POSTGRES_DB: goa
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+    ports:
+      - 5432:5432
+
+  pgdb_test:
+    image: postgres:9.6
+    restart: always
+    container_name: go-example-testdb
+    environment:
+      POSTGRES_DB: test
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+    ports:
+      - 5433:5432
+
+  adminer:
+    image: adminer
+    container_name: go-example-adminer
+    ports:
+      - 8080:8080
+    restart: always

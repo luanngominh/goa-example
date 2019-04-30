@@ -1,0 +1,8 @@
+langeuage: go
+go: '1.11'
+os: linux
+git:
+   depth: 1
+
+script:
+- make test

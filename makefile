@@ -1,4 +1,5 @@
-.PHONY: buid app client swagger test controller dev
+.PHONY: buid app client swagger test controller dev local-env \
+	local-env-down
 
 PROJECT_DIR=github.com/luanngominh/goa-example
 DESIGN_DIR=${PROJECT_DIR}/goa/design
@@ -18,11 +19,17 @@ controller:
 goa: app client swagger controller
 
 build:
-	@mkdir -p bin > /dev/null 2>&1
-	@go build -o bin/meocon	ext/cmd/goa-example/main.go > /dev/null 2>&1
+	@mkdir -p bin
+	go build -o bin/meocon	ext/cmd/goa-example/main.go
 
 dev: build
 	@ENV=DEV ./bin/meocon
 
 test:
 	go test ./...
+
+local-env:
+	docker-compose up -d
+
+local-env-down:
+	docker-compose down
