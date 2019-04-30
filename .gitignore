@@ -1,6 +1,5 @@
-./app
-./client
-./swagger
-./tool
+app
+client
+swagger
 
-!.gitignore
+.vscode
