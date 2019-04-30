@@ -15,3 +15,15 @@ var LoginResponse = MediaType("application/vnd.token+json", func() {
 		Attribute("token")
 	})
 })
+
+var RegisterResponse = MediaType("application/vnd.register+json", func() {
+	Description("Register response")
+
+	Attribute("token", String)
+	Attribute("message", String)
+
+	View("default", func() {
+		Attribute("token")
+		Attribute("message")
+	})
+})
