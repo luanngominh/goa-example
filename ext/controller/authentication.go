@@ -4,17 +4,17 @@ import (
 	"github.com/goadesign/goa"
 
 	"github.com/luanngominh/goa-example/app"
-	"github.com/luanngominh/goa-example/ext/services"
+	"github.com/luanngominh/goa-example/ext/service"
 )
 
 // AuthenticationController implements the authentication resource.
 type AuthenticationController struct {
 	*goa.Controller
-	Service *services.Services
+	Service *service.Service
 }
 
 // NewAuthenticationController creates a authentication controller.
-func NewAuthenticationController(service *goa.Service, dbSvc *services.Services) *AuthenticationController {
+func NewAuthenticationController(service *goa.Service, dbSvc *service.Service) *AuthenticationController {
 	return &AuthenticationController{
 		Controller: service.NewController("AuthenticationController"),
 		Service: dbSvc,

@@ -10,7 +10,7 @@ import (
 
 	"github.com/luanngominh/goa-example/app"
 	. "github.com/luanngominh/goa-example/ext/controller"
-	"github.com/luanngominh/goa-example/ext/services"
+	"github.com/luanngominh/goa-example/ext/service"
 )
 
 func main() {
@@ -28,7 +28,7 @@ func main() {
 	service.Use(middleware.Recover())
 
 	// Create db Service
-	dbSvc := &services.Services{}
+	dbSvc := &service.Service{}
 
 	// Mount "authentication" controller
 	c := NewAuthenticationController(service, dbSvc)
