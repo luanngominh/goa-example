@@ -5,8 +5,23 @@ git:
    depth: 1
 
 before_script:
-- go get -u github.com/goadesign/goa/...
+- go install github.com/goadesign/goa
+- go install github.com/goadesign/goa/goagen
+- go get github.com/goadesign/goa/goagen/gen_app 
+- go get github.com/goadesign/goa/goagen/gen_swagger
+- go get github.com/goadesign/goa/goagen/gen_controlle
 - make goa
 
-script:
-- make test
+jobs:
+   include:
+   - stage: test
+     script:
+     - make test
+
+   - stage: build
+     script:
+     - echo build
+   
+   - stage: deploy
+     script: 
+     - echo deploy
