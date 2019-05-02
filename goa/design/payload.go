@@ -73,11 +73,11 @@ var VerifyCodePayload = Type("VerifyCodePayload", func() {
 	Attribute("code", String, func() {
 		MinLength(6)
 		MaxLength(6)
-		Example(678512)
+		Example("678512")
 	})
 })
 
-var UpdateUserInformation = Type("UpdateUserInformation", func() {
+var UpdateUserInformationPayload = Type("UpdateUserInformation", func() {
 	Attribute("email", String, func() {
 		MinLength(5)
 		MaxLength(65)
