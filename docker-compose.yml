@@ -28,5 +28,5 @@ services:
     image: adminer
     container_name: go-example-adminer
     ports:
-      - 8080:8080
+      - 8989:8080
     restart: always
