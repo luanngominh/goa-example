@@ -45,55 +45,55 @@ var RegisterPayload = Type("ReigsterPayload", func() {
 	})
 })
 
-//RefreshPayload define refresh payload for refresh token endpoint
-var RefreshPayLoad = Type("RefreshPayload", func() {
-	Attribute("token", String, func() {
-		MaxLength(200)
-		Example("xx.xxxx.xx")
-	})
-})
+// //RefreshPayload define refresh payload for refresh token endpoint
+// var RefreshPayLoad = Type("RefreshPayload", func() {
+// 	Attribute("token", String, func() {
+// 		MaxLength(200)
+// 		Example("xx.xxxx.xx")
+// 	})
+// })
 
-var ForgotPasswordPayload = Type("ForgotPassword", func() {
-	Attribute("email", String, func() {
-		MinLength(5)
-		MaxLength(65)
-		Format("email")
-		Example("me@luanngominh.me")
-	})
-})
+// var ForgotPasswordPayload = Type("ForgotPassword", func() {
+// 	Attribute("email", String, func() {
+// 		MinLength(5)
+// 		MaxLength(65)
+// 		Format("email")
+// 		Example("me@luanngominh.me")
+// 	})
+// })
 
-var VerifyCodePayload = Type("VerifyCodePayload", func() {
-	Attribute("email", String, func() {
-		MinLength(5)
-		MaxLength(65)
-		Format("email")
-		Example("me@luanngominh.me")
-	})
+// var VerifyCodePayload = Type("VerifyCodePayload", func() {
+// 	Attribute("email", String, func() {
+// 		MinLength(5)
+// 		MaxLength(65)
+// 		Format("email")
+// 		Example("me@luanngominh.me")
+// 	})
 
-	Attribute("code", String, func() {
-		MinLength(6)
-		MaxLength(6)
-		Example("678512")
-	})
-})
+// 	Attribute("code", String, func() {
+// 		MinLength(6)
+// 		MaxLength(6)
+// 		Example("678512")
+// 	})
+// })
 
-var UpdateUserInformationPayload = Type("UpdateUserInformation", func() {
-	Attribute("email", String, func() {
-		MinLength(5)
-		MaxLength(65)
-		Format("email")
-		Example("me@luanngominh.me")
-	})
+// var UpdateUserInformationPayload = Type("UpdateUserInformation", func() {
+// 	Attribute("email", String, func() {
+// 		MinLength(5)
+// 		MaxLength(65)
+// 		Format("email")
+// 		Example("me@luanngominh.me")
+// 	})
 
-	Attribute("password", String, func() {
-		MinLength(6)
-		MaxLength(50)
-		Example("secret")
-	})
+// 	Attribute("password", String, func() {
+// 		MinLength(6)
+// 		MaxLength(50)
+// 		Example("secret")
+// 	})
 
-	Attribute("fullname", String, func() {
-		MinLength(10)
-		MaxLength(100)
-		Example("Luan Ngo Minh")
-	})
-})
+// 	Attribute("fullname", String, func() {
+// 		MinLength(10)
+// 		MaxLength(100)
+// 		Example("Luan Ngo Minh")
+// 	})
+// })
