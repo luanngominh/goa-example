@@ -1,5 +1,5 @@
 .PHONY: buid app client swagger test controller dev local-env \
-	local-env-down
+	local-env-down bin migrator
 
 PROJECT_DIR=github.com/luanngominh/goa-example
 DESIGN_DIR=${PROJECT_DIR}/goa/design
@@ -21,6 +21,12 @@ goa: app client swagger controller
 build:
 	@mkdir -p bin
 	go build -o bin/meocon	ext/cmd/goa-example/main.go
+
+migrator:
+	@mkdir -p bin
+	go build -o bin/migrator ext/cmd/migrator/main.go
+
+bin: build migrator
 
 dev: build
 	@ENV=DEV ./bin/meocon

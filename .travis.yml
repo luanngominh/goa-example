@@ -1,8 +1,11 @@
 langeuage: go
-go: '1.11'
+go: 1.11.x
 os: linux
 git:
    depth: 1
+
+env:
+  - GO111MODULE=on
 
 before_script:
 - go install github.com/goadesign/goa
