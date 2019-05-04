@@ -43,6 +43,8 @@ var RegisterPayload = Type("ReigsterPayload", func() {
 		MaxLength(100)
 		Example("Luan Ngo Minh")
 	})
+
+	Required("email", "fullname", "password")
 })
 
 //RefreshPayload define refresh payload for refresh token endpoint
@@ -51,6 +53,8 @@ var RefreshPayLoad = Type("RefreshPayload", func() {
 		MaxLength(200)
 		Example("xx.xxxx.xx")
 	})
+
+	Required("token")
 })
 
 var ForgotPasswordPayload = Type("ForgotPassword", func() {
@@ -60,6 +64,8 @@ var ForgotPasswordPayload = Type("ForgotPassword", func() {
 		Format("email")
 		Example("me@luanngominh.me")
 	})
+
+	Required("email")
 })
 
 var VerifyCodePayload = Type("VerifyCodePayload", func() {
@@ -75,6 +81,8 @@ var VerifyCodePayload = Type("VerifyCodePayload", func() {
 		MaxLength(6)
 		Example("678512")
 	})
+
+	Required("email", "code")
 })
 
 var UpdateUserInformationPayload = Type("UpdateUserInformation", func() {

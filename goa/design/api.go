@@ -15,7 +15,7 @@ var _ = API("Take Note Backend API", func() {
 	Scheme("http")
 	BasePath("/api")
 	Origin("*", func() {
-		Methods("GET", "POST", "PUT", "DELETE")
+		Methods("GET", "POST", "PUT", "DELETE", "HEAD")
 		Headers("Accept", "Content-Type", "Authorization")
 		Expose("Content-Type", "Origin")
 		MaxAge(600)
