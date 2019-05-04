@@ -5,6 +5,7 @@ import (
 	. "github.com/goadesign/goa/design/apidsl"
 )
 
+//Authentication resource
 var _ = Resource("authentication", func() {
 	BasePath("/auth")
 
@@ -74,6 +75,7 @@ var _ = Resource("authentication", func() {
 	})
 })
 
+//Health check resource
 var _ = Resource("health_check", func() {
 	Action("warm", func() {
 		NoSecurity()
