@@ -57,7 +57,7 @@ var RefreshPayLoad = Type("RefreshPayload", func() {
 	Required("token")
 })
 
-var ForgotPasswordPayload = Type("ForgotPassword", func() {
+var ForgotPasswordPayload = Type("ForgotPasswordPayload", func() {
 	Attribute("email", String, func() {
 		MinLength(5)
 		MaxLength(65)

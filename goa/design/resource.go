@@ -28,7 +28,7 @@ var _ = Resource("authentication", func() {
 		Response(OK, LoginResponse)
 		Response(BadRequest)
 	})
-	
+
 	Action("refresh", func() {
 		Security(JWT, func() {
 			Scope("api:access")
@@ -67,9 +67,20 @@ var _ = Resource("authentication", func() {
 		})
 		Routing(
 			PUT("/user"),
-		)		
+		)
 		Payload(UpdateUserInformationPayload)
 		Response(OK, UpdateUserInformationResponse)
 		Response(BadRequest)
+	})
+})
+
+var _ = Resource("health_check", func() {
+	Action("warm", func() {
+		NoSecurity()
+		Description("Health check endpoint")
+		Routing(
+			GET("/warm"),
+		)
+		Response(OK, "text/plain")
 	})
 })

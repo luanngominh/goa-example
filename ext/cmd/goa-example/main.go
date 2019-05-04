@@ -17,7 +17,7 @@ func main() {
 	if os.Getenv("ENV") == "DEV" {
 		// load .env file
 	}
-	
+
 	// Create service
 	service := goa.New("Take Note Backend API")
 
@@ -33,6 +33,9 @@ func main() {
 	// Mount "authentication" controller
 	c := NewAuthenticationController(service, dbSvc)
 	app.MountAuthenticationController(service, c)
+
+	c1 := NewHealthCheckController(service, dbSvc)
+	app.MountHealthCheckController(service, c1)
 
 	// Start service
 	if err := service.ListenAndServe(":8888"); err != nil {
