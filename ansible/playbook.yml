@@ -1,0 +1,31 @@
+---
+- hosts: goa_app
+  become: true
+  gather_facts: true
+  vars_files:
+  - vars/main.yml
+  handlers:
+  - include_tasks: handlers/main.yml
+  
+  tasks:
+  - name: Copy binary file
+    copy:
+      dest: /usr/bin/goa
+      force: yes
+      src: files/goa
+      mode: 0744
+
+  - name: Copy systemd unit file
+    template:
+      src: templates/goa.service.j2
+      dest: /etc/systemd/system/goa.service
+      force: yes
+    notify:
+    - reload
+
+  - name: Start goa service
+    systemd:
+      name: goa
+      state: restarted
+    tags:
+    - always
