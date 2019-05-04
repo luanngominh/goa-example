@@ -1,7 +1,7 @@
 include .env-example
 
 .PHONY: buid app client swagger test controller dev local-env \
-	local-env-down bin migrator migrate deps
+	local-env-down bin migrator migrate deps ansible-cd
 
 PROJECT_DIR=github.com/luanngominh/goa-example
 DESIGN_DIR=${PROJECT_DIR}/goa/design
@@ -48,3 +48,8 @@ local-env-down:
 # Install some dependencies
 deps:
 	go get -u github.com/pressly/goose/cmd/goose
+
+#Deploy app to linux server via ansible
+ansible-cd: build
+	cp bin/meocon ansible/files/goa
+	cd ansible; ansible-playbook -i inventory/host.ini playbook.yml

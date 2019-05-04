@@ -22,11 +22,9 @@
       force: yes
     notify:
     - reload
-
+  
   - name: Start goa service
     systemd:
       name: goa
       state: restarted
       enabled: yes
-    tags:
-    - always
