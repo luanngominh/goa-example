@@ -1,5 +1,7 @@
+include .env-example
+
 .PHONY: buid app client swagger test controller dev local-env \
-	local-env-down bin migrator
+	local-env-down bin migrator migrate deps
 
 PROJECT_DIR=github.com/luanngominh/goa-example
 DESIGN_DIR=${PROJECT_DIR}/goa/design
@@ -26,6 +28,9 @@ migrator:
 	@mkdir -p bin
 	go build -o bin/migrator ext/cmd/migrator/main.go
 
+migrate:
+	goose -dir migration postgres ${DB_CONNECTION} up
+
 bin: build migrator
 
 dev: build
@@ -39,3 +44,7 @@ local-env:
 
 local-env-down:
 	docker-compose down
+
+# Install some dependencies
+deps:
+	go get -u github.com/pressly/goose/cmd/goose

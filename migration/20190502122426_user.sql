@@ -11,7 +11,7 @@ CREATE TABLE "public"."users" (
     "deleted_at" TIMESTAMPTZ DEFAULT NULL,
 
     CONSTRAINT "user_pk" PRIMARY KEY ("id")
-)
+);
 
 -- +goose Down
 -- SQL in this section is executed when the migration is rolled back.
