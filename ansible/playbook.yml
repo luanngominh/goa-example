@@ -27,5 +27,6 @@
     systemd:
       name: goa
       state: restarted
+      enabled: yes
     tags:
     - always
