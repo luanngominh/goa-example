@@ -5,3 +5,4 @@ tool
 .vscode
 bin/**
 ansible/key.pem
+**/*.retry
