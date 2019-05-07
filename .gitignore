@@ -6,3 +6,4 @@ tool
 bin/**
 ansible/key.pem
 **/*.retry
+rsa_key*
