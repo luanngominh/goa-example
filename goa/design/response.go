@@ -20,11 +20,10 @@ var RegisterResponse = MediaType("application/vnd.register+json", func() {
 	Description("Register response")
 
 	Attribute("token", String)
-	Attribute("message", String)
+	Attribute("user_info", UserInfo)
 
 	View("default", func() {
 		Attribute("token")
-		Attribute("message")
 	})
 })
 
@@ -73,3 +72,15 @@ var UpdateUserInformationResponse = MediaType("application/vnd.update_user+json"
 		Attribute("fullname")
 	})
 })
+
+var UserInfo = MediaType("application/vnd.user_info+json", func() {
+	Description("User info")
+	
+	Attribute("username", String)
+	Attribute("email", String)
+
+	View("default", func() {
+		Attribute("username")
+		Attribute("email")
+	})
+}) 

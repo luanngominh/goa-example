@@ -2,8 +2,11 @@ package controller
 
 import (
 	"github.com/goadesign/goa"
+
 	"github.com/luanngominh/goa-example/app"
 	"github.com/luanngominh/goa-example/ext/service"
+	"github.com/luanngominh/goa-example/ext/util/crypto"
+	"github.com/luanngominh/goa-example/model"
 )
 
 // AuthenticationController implements the authentication resource.
@@ -55,11 +58,28 @@ func (c *AuthenticationController) Refresh(ctx *app.RefreshAuthenticationContext
 
 // Register runs the register action.
 func (c *AuthenticationController) Register(ctx *app.RegisterAuthenticationContext) error {
-	// AuthenticationController_Register: start_implement
+	payload := ctx.Payload
 
-	// Put your logic here
+	passwordDigest, err := crypto.BcryptHashPassword(payload.Password)
+	if err != nil {
+		return err
+	}
 
-	res := &app.Token{}
+	u, err := c.Service.User.Create(ctx.Context, &model.User{
+		Email: payload.Email,
+		Fullname: payload.Fullname,
+		PasswordDigest: passwordDigest,
+	})
+
+	
+
+	if err != nil {
+		return err
+	}
+
+	res := &app.Register{
+
+	}
 	return ctx.OK(res)
 	// AuthenticationController_Register: end_implement
 }

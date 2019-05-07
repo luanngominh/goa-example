@@ -17,7 +17,7 @@ var _ = Resource("authentication", func() {
 		Description("Sign in")
 		Payload(LoginPayload)
 		Response(OK, LoginResponse)
-		Response(BadRequest)
+		Response(Unauthorized)
 	})
 
 	Action("register", func() {

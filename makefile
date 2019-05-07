@@ -1,7 +1,7 @@
 include .env-example
 
 .PHONY: buid app client swagger test controller dev local-env \
-	local-env-down bin migrator migrate deps ansible-cd
+	local-env-down bin migrator migrate deps ansible-cd gen-key
 
 PROJECT_DIR=github.com/luanngominh/goa-example
 DESIGN_DIR=${PROJECT_DIR}/goa/design
@@ -53,3 +53,7 @@ deps:
 ansible-cd: build
 	cp bin/meocon ansible/files/goa
 	cd ansible; ansible-playbook -i inventory/host.ini playbook.yml
+
+gen-key:
+	openssl genrsa -out rsa_key 2048
+	openssl rsa -in rsa_key -pubout > rsa_key.pub
