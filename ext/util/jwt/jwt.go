@@ -49,3 +49,7 @@ func GenerateJWT(userID, email string) *jwtgo.Token {
 
 	return token
 }
+
+func GenerateJWTToken(token *jwtgo.Token) string {
+	return ""
+}
