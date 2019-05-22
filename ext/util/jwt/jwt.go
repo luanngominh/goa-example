@@ -52,5 +52,4 @@ func GenerateJWT(userID, email string) *jwtgo.Token {
 
 // GenerateJWTToken create jwt token
 func GenerateJWTToken(token *jwtgo.Token) string {
-	return ""
 }
